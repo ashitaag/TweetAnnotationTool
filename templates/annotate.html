@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Annotation Tool - {{ tweet.id }}</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.18.0/css/mdb.min.css" rel="stylesheet">
+
+
+</head>
+<body>
+
+<!--Section: Contact v.2-->
+<section class="mb-4">
+
+    <!--Section heading-->
+    <h3 class="h1-responsive font-weight-bold text-center my-4">Annotate Tweet : {{ tweet.id }}</h3>
+    <hr />
+    <div class="row">
+
+        <div class="col-md-3 text-center">
+        </div>
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-md-0 mb-5">
+            <form action="/annotate_tweet" method="POST">
+
+                <input type="hidden" name="id" value="{{ tweet.id }}">
+
+                <label for="text">Tweet Text</label>
+                <div class="container well border">
+                    <p>{{ tweet.text }}</p>
+                </div>
+
+                <br />
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="key_term_killed">key_term_killed</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" name="key_term_killed" class="form-control" value="{{ tweet.key_term_killed }}">
+                    </div>
+                </div>
+
+                <br />
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="key_term_injured">key_term_injured</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" name="key_term_injured" class="form-control" value="{{ tweet.key_term_injured }}">
+                    </div>
+                </div>
+
+                <br />
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="accident_related">accident_related</label>
+                    </div>
+                    <div class="col-md-9">
+                        <select name="accident_related" class="form-control">
+                            <option value="True">True</option>
+                            <option value="False" selected>False</option>
+                        </select>
+                    </div>
+                </div>
+
+                <br />
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="informative">informative</label>
+                    </div>
+                    <div class="col-md-9">
+                        <select name="informative" class="form-control">
+                            <option value="True">True</option>
+                            <option value="False" selected>False</option>
+                        </select>
+                    </div>
+                </div>
+
+                <br />
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="num_killed">num_killed</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="number" name="num_killed" class="form-control" value="{{ tweet.num_killed }}">
+                    </div>
+                </div>
+
+                <br />
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="num_vehicles">num_vehicles</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="number" name="num_vehicles" class="form-control" value="{{ tweet.num_vehicles }}">
+                    </div>
+                </div>
+
+                <br />
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="key_term_num_vehicles">key_term_num_vehicles</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="text" name="key_term_num_vehicles" class="form-control" value="{{ tweet.key_term_num_vehicles }}">
+                    </div>
+                </div>
+
+                <br />
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="num_injured">num_injured</label>
+                    </div>
+                    <div class="col-md-9">
+                        <input type="number" name="num_injured" class="form-control" value="{{ tweet.num_injured }}">
+                    </div>
+                </div>
+
+
+                <br />
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="severity">severity</label>
+                    </div>
+                    <div class="col-md-9">
+                        <select name="severity" class="form-control">
+                            <option value="True">True</option>
+                            <option value="False" selected>False</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <hr />
+                <div style="text-align: center;">
+                    <a href = "/delete_tweet_and_annotate/{{ tweet.id }}" class="btn btn-md btn-danger">Delete Tweet</a>
+                    <button type="submit" class="btn btn-md btn-success">Annotate</button>
+                </div>
+
+
+            </form>
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-3 text-center">
+        </div>
+        <!--Grid column-->
+
+    </div>
+
+</section>
+<!--Section: Contact v.2-->
+
+
+
+
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.18.0/js/mdb.min.js"></script>
+</body>
+</html>
